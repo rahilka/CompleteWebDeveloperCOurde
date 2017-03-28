@@ -1,0 +1,13 @@
+#green {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: green;
+}
+
+#red {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: red;
+}
