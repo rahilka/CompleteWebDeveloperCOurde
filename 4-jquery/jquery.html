@@ -5,58 +5,25 @@
 
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <script type="text/javascript" src="jquery.min.js"></script>
-  <style type="text/css">
-  #green {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: green;
-    float: left;
-    margin-right: 20px;
-  }
-
-  .red {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    float: left;
-    margin-right: 20px;
-
-
-  }
-
-
-  </style>
 
 </head>
 
 <body>
-  <!-- Hi there! -->
 
-  <div id="green"></div>
-
-  <p>
-    This is some text.
+  <p id="text">
+    This is a paragraph that will fade out when you'll press the button.
   </p>
 
-  <iframe src="http://www.cnn.com"></iframe>
-
+  <button id="toggle">Press to fadeout</button>
 
 
   <script type="text/javascript">
 
-    $("#green").click(function() {
+  $("#toggle").click(function() {
 
-      alert($("p").html());
+    $("#text").toggle();
 
-    });
-
-    $("#green").hover(function() {
-        $("iframe").attr("src", "https://www.google.com");
-    });
-
-
-
+  })
 
 
   </script>
