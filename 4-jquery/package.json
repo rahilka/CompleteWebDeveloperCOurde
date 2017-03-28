@@ -1,0 +1,17 @@
+{
+  "name": "4-jquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jquery.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "http": "0.0.0",
+    "path": "^0.12.7"
+  }
+}
