@@ -6,24 +6,39 @@
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <script type="text/javascript" src="jquery.min.js"></script>
 
+  <style>
+
+    #circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: green;
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-  <p id="text">
-    This is a paragraph that will fade out when you'll press the button.
-  </p>
-
-  <button id="toggle">Press to fadeout</button>
-
+  <div id="circle"></div>
 
   <script type="text/javascript">
 
-  $("#toggle").click(function() {
+    $("#circle").click(function() {
 
-    $("#text").toggle();
+      $(this).animate({
+        width:"400px",
+        height: "400px",
+        marginLeft: "100px",
+        marginTop: "100px"
+      }, 2000, function() {
 
-  })
+        $(this).css("background-color", "red");
+
+      });
+
+    });
 
 
   </script>
