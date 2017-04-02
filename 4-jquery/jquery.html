@@ -11,32 +11,56 @@
 
   <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
 
-  <style>
-
-  #draggable {
-
-    width: 150px;
-    height: 150px;
-    padding: 0.5em;
-
-  }
-
-  </style>
-
 </head>
 
 <body>
 
-  <div id="draggable" class="ui-widget-content">
+  <div id="draggable">
     <p>Drag me around</p>
   </div>
 
+  <div id="resizable" style="width:350px;height:350px;background-color:yellow">
+    <p>Resizable</p>
+  </div>
+
+
+  <div style="width:350px;height:350px;background-color:yellow">
+
+    <span>
+      I'm stuck in the box;
+    </span>
+
+  </div>
+
+  <div id="resizablle1" style="width:50px;height:50px;background-color:red">
+
+  </div>
+
+  <div id="also" style="width:50px;height:50px;background-color:green">
+
+  </div>
 
   <script type="text/javascript">
 
     $( function() {
-      $( "#draggable" ).draggable();
+      $( "#draggable" ).draggable({ axis: "x" });
     } );
+
+    $("span").draggable({containment: "parent"});
+
+
+    $( "#resizablle1" ).resizable({
+      alsoResize: "#also",
+      resize: function( event, ui ) {
+
+      if ($("#resizablle1").width() > 300) {
+        alert('big enough');
+      }
+
+      }
+    });
+    $( "#also" ).resizable();
+
 
   </script>
 
