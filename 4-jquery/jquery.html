@@ -7,57 +7,197 @@
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <script type="text/javascript" src="jquery.min.js"></script>
 
-  <script src="jquery-ui/jquery-ui.js"></script>
+  <!-- <script src="jquery-ui/jquery-ui.js"></script> -->
 
-  <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+  <!-- <link href="jquery-ui/jquery-ui.css" rel="stylesheet"> -->
+
+  <style type="text/css">
+
+    body {
+
+      font-family: sans-serif;
+      padding: 0;
+      margin: 0;
+
+    }
+
+    #header {
+
+      width: 100%;
+      background-color: #EEEEEE;
+      padding: 5px;
+      height: 30px;
+
+    }
+
+    #buttonContainer {
+
+      width: 250px;
+      margin: 0 auto;
+
+    }
+
+    .toggleButton {
+
+      float: left;
+      border: 1px solid gray;
+      padding: 5px;
+      border-right: none;
+      font-size: 90%;
+
+    }
+
+    #html {
+
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+
+    }
+
+    #output {
+
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-right: 1px solid grey;
+
+    }
+
+    #logo {
+
+      float: left;
+      font-weight: bold;
+      font-size: 150%;
+      padding: 2px 5px;
+
+    }
+
+    .active {
+
+      background-color: #E8F2FF;
+
+    }
+
+    .highlightedButton {
+
+      background-color: grey;
+
+    }
+
+    textarea {
+
+      resize: none;
+      border-top: none;
+      border-color: grey;
+
+    }
+
+    .panel {
+
+      float: left;
+      width: 50%;
+      border-left: none;
+
+    }
+
+    iframe {
+
+      border: none;
+
+    }
+
+    .hidden {
+
+      display: none;
+
+    }
+
+  </style>
 
 </head>
 
 <body>
 
-  <div id="accordion">
-    <h3>Section 1</h3>
-    <div>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </p>
+  <div id="header">
+
+    <div id="logo">
+
+      Code player
+
     </div>
-    <h3>Section 2</h3>
-    <div>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </p>
+
+    <div id="buttonContainer">
+
+      <div class="toggleButton active" id="html">HTML</div>
+      <div class="toggleButton" id="css">CSS</div>
+      <div class="toggleButton" id="javascript">Javascript</div>
+      <div class="toggleButton active" id="output">Output</div>
+
     </div>
-    <h3>Section 3</h3>
-    <div>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </p>
-    </div>
-    <h3>Section 4</h3>
-    <div>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </p>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </p>
-    </div>
+
   </div>
 
-  <ul id="sortable">
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
-  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
-</ul>
+  <div id="bodyContainer">
+
+    <textarea id="htmlPanel" class="panel"><p id="paragraph">Hello world!</p></textarea>
+
+    <textarea id="cssPanel" class="panel hidden">p { color: green }</textarea>
+
+    <textarea id="javascriptPanel" class="panel hidden">document.getElementById("paragraph").innerHTML = "Hello Rahilka!!!"</textarea>
+
+    <iframe id="outputPanel" class="panel"></iframe>
+
+  </div>
 
 
   <script type="text/javascript">
 
-    $( "#accordion" ).accordion();
+  function updateOutput() {
 
-    $( "#sortable" ).sortable();
-    // $( "#sortable" ).disableSelection();
+    $("iframe").contents().find("html").html("<html><head><style type='text/css'>" +
+    $("#cssPanel").val() + "</style></head><body>" + $("#htmlPanel").val() + "</body></html>");
+
+    document.getElementById("outputPanel").contentWindow.eval($("#javascriptPanel").val());
+
+  }
+
+  $(".toggleButton").hover(function () {
+
+    $(this).addClass("highlightedButton");
+
+  }, function () {
+
+    $(this).removeClass("highlightedButton");
+
+  });
+
+  $(".toggleButton").click(function () {
+
+    $(this).toggleClass("active");
+
+    $(this).removeClass("highlightedButton");
+
+    var panelId = $(this).attr("id") + 'Panel';
+
+    $("#" + panelId).toggleClass("hidden");
+
+    var numberOfActivePanels = 4 - $(".hidden").length
+
+    $(".panel").width(($(window).width() / numberOfActivePanels) - 10);
+
+  });
+
+  $(".panel").height( $(window).height() - $("#header").height() - 15);
+
+  $(".panel").width( $(window).width() / 2 - 8);
+
+  // $("iframe").contents().find("html").html($("#htmlPanel").val());
+  updateOutput();
+
+  $("#htmlPanel").on('change keyup paste', function() {
+
+    updateOutput();
+
+  });
 
   </script>
 
