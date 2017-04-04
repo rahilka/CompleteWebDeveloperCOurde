@@ -12,83 +12,88 @@
   </head>
   <body>
 
-    <div class="container">
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-name="rahilka">
+      Email Rahilka
+    </button>
 
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-name="ljubica">
+      Email Ljubica
+    </button>
 
-      <form>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-name="risto">
+      Email Risto
+    </button>
 
-          <fieldset class="form-group row">
-
-          <label for="email" class="col-sm-2">Email address</label>
-
-          <div class="col-sm-10">
-
-            <input id="email" type="email" class="form-control" />
-
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-
-
-        </fieldset>
-
-          <fieldset class="form-group row">
-
-          <label for="password" class="col-sm-2">Password</label>
-
-          <div class="col-sm-10">
-
-          <input id="password" type="password" class="form-control" />
-
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
         </div>
-
-
-        </fieldset>
-
-          <fieldset class="form-group">
-
-          <button type="submit" class="btn btn-primary">Submit</button>
-
-        </fieldset>
-
-      </form>
-
+      </div>
     </div>
 
 
+    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" data-placement="bottom" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+
+    <button type="button" id="tooltip" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom"  data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+      Tooltip with HTML
+    </button>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
+
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+    $('#myModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var recipient = button.data('name') // Extract info from data-* attributes
+      // alert(recipient);
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.modal-title').text('New message to ' + recipient)
+      // modal.find('.modal-body input').val(recipient)
+
+    })
+
+    $("#myModal").on('hidden.bs.modal', function(event) {
+      alert('modal was closed');
+    })
+
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    $('#tooltip').on('show.bs.tooltip', function () {
+      // do something…
+      alert('showing tooltip');
+    })
+
+
+    </script>
+
+
   </body>
 </html>
