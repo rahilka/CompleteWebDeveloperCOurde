@@ -13,9 +13,16 @@
 
     .jumbotron {
 
-      background-image: url(image.jpg)
+      background-image: url(image.jpg);
 
     }
+
+    #email {
+
+      width: 300px;
+
+    }
+
 
     </style>
 
@@ -52,10 +59,24 @@
       <p class="lead">This is why YOU should download this fantastic app!</p>
       <hr class="my-4">
       <p>Want to know more? Join our mailing list!</p>
-      <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-      </p>
+
+       <form class="form-inline">
+         <div class="form-group">
+
+           <label class="sr-only" for="inlineFormInputGroup">Email address</label>
+           <div class="input-group">
+           <div class="input-group-addon">@</div>
+           <input type="email" class="form-control" id="email" placeholder="Your Email">
+         </div>
+
+       </div>
+         <button type="submit" class="btn btn-primary">Sign Up</button>
+       </form>
+
     </div>
+
+
+
 
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
