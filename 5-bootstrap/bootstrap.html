@@ -16,12 +16,20 @@
     .jumbotron {
 
       background-image: url(image.jpg);
+      text-align: center;
+      margin-top: 50px;
 
     }
 
     #email {
 
       width: 300px;
+
+    }
+
+    #emailForm {
+
+      text-align: center;
 
     }
 
@@ -54,30 +62,34 @@
 
     }
 
+    body {
+      position: relative;
+    }
+
 
     </style>
 
 
   </head>
-  <body>
+  <body data-spy="scroll" data-target="navbar">
 
 
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-fixed-top" id="navbar">
       <a class="navbar-brand" href="#">MyApp</a>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="#jumbotron">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Download The App</a>
+            <a class="nav-link" href="#footer">Download The App</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline" id="emailForm">
           <input class="form-control mr-sm-2" type="email" placeholder="Email">
           <input class="form-control mr-sm-2" type="password" placeholder="Password">
           <button class="btn btn-outline-success" type="submit">Login</button>
@@ -85,7 +97,7 @@
       </div>
     </nav>
 
-    <div class="jumbotron">
+    <div class="jumbotron" id="jumbotron">
       <h1 class="display-3">My Awesome App!</h1>
       <p class="lead">This is why YOU should download this fantastic app!</p>
       <hr class="my-4">
@@ -119,7 +131,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="container" id="about">
 
     <div class="card-deck">
       <div class="card">
