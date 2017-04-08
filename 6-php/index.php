@@ -1,30 +1,37 @@
 <?php
 
-$name = "Rahilka";
+$myArray = array(Rahilka", "Ljubica", "Risto", "Ana");
 
-echo $name;
-// dispaly something on the page with echo
+print_r($myArray);
 
-$string1 = '<p>This is the first part';
+echo $myArray[1];
 
-$string2 = "of a sentence</p>";
+echo "<br><br>"
 
-echo $string1." ".$string2;
+$anotherArray[0] = "pizza";
 
-$myNumber = 45;
+$anotherArray[1] = "yoghurt";
 
-$calculation = myNumber * 31 / 97 + 4;
+$anotherArray[5] = "coffe";
 
-echo "The result of the calculation is: ".$calculation;
+$anotherArray["myFavoriteFood"] = "ice cream";
 
-$myBool = true; //false is 0 or nothing
+print_r($anotherArray);
 
-echo "<p>This statement is true? ".$myBool;
+$thirdArray = array(
+
+  "France" => "French",
+  "USA" => "English",
+  "Germany" => "German");
+
+print_r($thirdArray);
 
 
-$variableName = "name";
+echo sizeof($thirdArray);
 
-echo $$variableName;
-// $variableName = name --> $name = Rahilka
+
+$myArray[] = "new-Name";
+
+unset($thirdArray["France"]);
 
  ?>
