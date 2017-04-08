@@ -1,33 +1,21 @@
 <?php
 
-  $family = array("Rahilka", "Ljubica");
+  $emailTo = "rahilka.simonova@yahoo.com";
 
-  for($i = 0; $i < sizeof($family); $i++) {
+  $subject = "I hope this works";
 
-    if ($family[$i] ==  $_POST['name']) {
+  $body = "I think you're great";
 
-      echo "WE know you!";
+  $headers = "From: rahilka.simonova@yahoo.com";
 
-    } else {
+  if ( mail($emailTo, $subject, $body, $headers) ) {
 
-      echo "Sorry, we don't know you!";
+    echo "The email was sent successfully";
 
-    }
+  } else {
+
+    echo "The email could not be send";
 
   }
 
-
  ?>
-
-
- <p>
-   Please enter a username
- </p>
-
- <form method="post">
-
-   <input name="name" type="text" />
-
-   <input type="submit" value="Go!" />
-
- </form>
