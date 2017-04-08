@@ -1,54 +1,32 @@
 <?php
 
-  if (is_numeric($_GET) && $_GET > 0 && $_GET == round($_GET, 0)) {
+  $family = array("Rahilka", "Ljubica");
 
-    $i = 2;
+  for($i = 0; $i < sizeof($family); $i++) {
 
-    $isPrime = true;
+    if ($family[$i] ==  $_POST['name']) {
 
-    while ($i < $_GET['number']) {
-
-      if ($_GET['number'] % $i == 0) {
-
-        //number is not prime!
-
-        $isPrime = false;
-
-      }
-
-      $i++;
-
-    }
-
-    if ($isPrime) {
-
-      echo "<p>".$i." is a prime number</p>";
+      echo "WE know you!";
 
     } else {
 
-      echo "<p>".$i." is not prime.</p>";
+      echo "Sorry, we don't know you!";
 
     }
 
-  } else if($_GET) {
-
-    //user has submitted sth which is not a positive whole number
-
-    echo "<p>Please enter a positive whole number</p>";
   }
 
-  //$_GET all the get variables'
 
  ?>
 
 
  <p>
-   Please enter a whole number
+   Please enter a username
  </p>
 
- <form>
+ <form method="post">
 
-   <input name="number" type="text" />
+   <input name="name" type="text" />
 
    <input type="submit" value="Go!" />
 
