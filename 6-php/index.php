@@ -1,21 +1,11 @@
 <?php
 
-  $emailTo = "rahilka.simonova@yahoo.com";
+  include("includedfile.php");
 
-  $subject = "I hope this works";
+  //and it will run the php code form that file
 
-  $body = "I think you're great";
+  echo file_get_contents("https://www.ecowebhosting.co.uk");
 
-  $headers = "From: rahilka.simonova@yahoo.com";
-
-  if ( mail($emailTo, $subject, $body, $headers) ) {
-
-    echo "The email was sent successfully";
-
-  } else {
-
-    echo "The email could not be send";
-
-  }
+  //get files from another source
 
  ?>
