@@ -1,31 +1,20 @@
 <?php
 
+$family = array("Rahilka", "Ljubica", "Ana", "Risto");
 
-$user = "rahilka";
+foreach ($family as $key => $value) {
 
-if( $user == "rahilka") {
+  $family[$key] = $value." Simonov";
 
-  echo "Hello Rahilka";
-
-} else {
-
-  echo "I don't know you";
+  echo "Array item ".$key."is ".$value."<br />";
 
 }
 
-echo "<br><br>"
 
-$age = 25;
+for ($i = 0; $i < sizeof($family); $i++) {
 
-if ($age >= 18 || $user = "rahilka") {
-
-  echo "You're good";
-
-} else {
-
-  echo ("Too young to continue.");
+  echo $family[$i]."<br>";
 
 }
-
 
  ?>
