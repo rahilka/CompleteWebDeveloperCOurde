@@ -1,37 +1,31 @@
 <?php
 
-$myArray = array(Rahilka", "Ljubica", "Risto", "Ana");
 
-print_r($myArray);
+$user = "rahilka";
 
-echo $myArray[1];
+if( $user == "rahilka") {
+
+  echo "Hello Rahilka";
+
+} else {
+
+  echo "I don't know you";
+
+}
 
 echo "<br><br>"
 
-$anotherArray[0] = "pizza";
+$age = 25;
 
-$anotherArray[1] = "yoghurt";
+if ($age >= 18 || $user = "rahilka") {
 
-$anotherArray[5] = "coffe";
+  echo "You're good";
 
-$anotherArray["myFavoriteFood"] = "ice cream";
+} else {
 
-print_r($anotherArray);
+  echo ("Too young to continue.");
 
-$thirdArray = array(
+}
 
-  "France" => "French",
-  "USA" => "English",
-  "Germany" => "German");
-
-print_r($thirdArray);
-
-
-echo sizeof($thirdArray);
-
-
-$myArray[] = "new-Name";
-
-unset($thirdArray["France"]);
 
  ?>
