@@ -20,11 +20,41 @@
       background-size: cover;
     }
 
+    body {
+
+      background: none;
+
+    }
+
+    .container {
+
+      text-align: center;
+      margin-top: 200px;
+      width: 500px;
+
+    }
+
     </style>
 
   </head>
   <body>
-    
+
+    <div class="container">
+
+      <h1>What's the weather?</h1>
+
+
+      <form>
+        <div class="form-group">
+          <label for="city">Enter the name of the city.</label>
+          <input type="text" class="form-control" id="city" placeholder="eg. Skopje, Negotino">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+
+    </div>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
