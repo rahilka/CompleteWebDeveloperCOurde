@@ -3,7 +3,7 @@
   $weather = "";
   $error = "";
 
-  if ($_GET['city']) {
+  if (array_key_exists('city', $_GET)) {
 
    $city = str_replace(' ', '', $_GET['city']);
 
@@ -103,7 +103,17 @@
       <form>
         <div class="form-group">
           <label for="city">Enter the name of the city.</label>
-          <input type="text" name="city" class="form-control" id="city" placeholder="eg. Skopje, Negotino" value="<?php echo $city ?>">
+          <input type="text" name="city" class="form-control" id="city" placeholder="eg. Skopje, Negotino" value="<?php
+
+
+            if (array_key_exists('city', $_GET)) {
+
+              echo $_get['city'];
+
+            };
+
+
+           ?>">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
