@@ -1,14 +1,46 @@
 <?php
 
+  $weather = "";
+  $error = "";
+
   if ($_GET['city']) {
 
-    $forecastPage = file_get_contents("http://www.weather-forecast.com/locations/".$_GET['city']."/forecasts/latest");
+   $city = str_replace(' ', '', $_GET['city']);
 
-    $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forecastPage);
+   $file_headers = @get_headers("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
 
-    $secondPageArray = explode('</span></span></span>', $pageArray);
+    if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
-    $weather = $secondPageArray[0];
+        $error = 'That city could not be found';
+
+    } else {
+
+
+      $forecastPage = file_get_contents("http://www.weather-forecast.com/locations/".$city."/forecasts/latest");
+
+      $pageArray = explode('3 Day Weather Forecast Summary:</b><span class="read-more-small"><span class="read-more-content"> <span class="phrase">', $forecastPage);
+
+      if (sizeof($pageArray) > 1) {
+
+        $secondPageArray = explode('</span></span></span>', $pageArray);
+
+        if(sizeof($secondPageArray) > 1) {
+
+          $weather = $secondPageArray[0];
+
+        } else {
+
+          $error = 'That city could not be found';
+
+        }
+
+      } else {
+
+        $error = 'That city could not be found';
+
+      }
+
+    }
 
   }
 
@@ -71,24 +103,26 @@
       <form>
         <div class="form-group">
           <label for="city">Enter the name of the city.</label>
-          <input type="text" name="city" class="form-control" id="city" placeholder="eg. Skopje, Negotino">
+          <input type="text" name="city" class="form-control" id="city" placeholder="eg. Skopje, Negotino" value="<?php echo $city ?>">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
 
       </form>
 
-      <div id="weather" <?php
+      <div id="weather"><?php
 
         if($weather) {
 
           echo '<div class="alert alert-success" role="alert">$weather</div>'
 
+        } else if ($error) {
+
+          echo '<div class="alert alert-danger" role="alert">$error</div>'
+
         };
 
-      ?>>
-
-      </div>
+      ?></div>
 
     </div>
 
