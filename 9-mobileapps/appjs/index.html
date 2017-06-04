@@ -3,35 +3,160 @@
   <head>
     <title>My App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="app.min.css" />
+    <link rel="stylesheet" href="app.min.css">
+    <style>
+      @-webkit-keyframes pulse {
+        0% {
+          background-color: #CCC;
+        }
+        25% {
+          background-color: #EEE;
+        }
+        50% {
+          background-color: #CCC;
+        }
+        75% {
+          background-color: #EEE;
+        }
+        100% {
+          background-color: #CCC;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app-page" data-page="home">
+      <div class="app-topbar blue">
+        <div class="app-title">Home page</div>
+      </div>
+      <div class="app-content">
+        <p class="app-section">
+          Click below to send an email.
+        </p>
+
+
+        <div class="app-section">
+          <div class="app-button" data-target="sendemail" id="contact-list">Lists</div>
+        </div>
+
+        <div class="app-section">
+          <div class="app-button" data-target="sendemail">Send to new user</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="sendemail">
+      <div class="app-topbar">
+        <div class="app-title"><span class="app-icon"></span>Send email</div>
+        <div class="right app-button" data-back>Done</div>
+      </div>
+
+      <div class="app-content">
+
+        <div class="app-section">
+          From: <input class="app-input" id="sender-email" placeholder="Sender Email address">
+        </div>
+
+        <div class="app-section">
+          To: <input class="app-input" id="recipient-email" placeholder="Recipient Email address">
+        </div>
+
+        <form class="app-section">
+          <input class="app-input" name="subject" placeholder="Subject">
+          <textarea class="app-input" name="message" placeholder="Message"></textarea>
+          <div class="app-button green app-submit" id="send-button">Send</div>
+        </form>
+      </div>
+    </div>
 
     <script src="zepto.js"></script>
+    <script src="app.min.js"></script>
+    <script>
 
-    <script type="text/javascript">
+      App.controller('home', function (page) {
 
-      // before using local storage, check if the browser supports it
+        if(typeof localStorage !== 'undefined') {
 
-      if(typeof(Storage) !== "undefined") {
+          if(localStorage.getItem("recipient-list") !== null) {
 
-        // localStorage.setItem("name", "Rob");
-        // alert(localStorage.getItem("name"));
+            var recipientList = JSON.parse(localStorage.getItem("recipient-list"));
 
-        var names = [];
-        // names[0] = prompt("New member name?");
-        // localStorage.setItem("names", JSON.stringify(names));
+            $.each(recipientList, function (index, value) {
 
-        var storedNames = JSON.parse(localStorage.getItem("names"));
+              $(page).find("#contact-list").append('<div class="app-button" data-target="sendemail">' + value + '</div>')
 
-        alert(storedNames[0]);
+            });
 
+            $(page).find("#contact-list").show();
 
-      } else {
+          } else {
 
-        alert('Please upgrade your browser');
+            $(page).find("#contact-list").hide();
 
+          }
+
+        }
+
+      });
+
+      App.controller('sendemail', function (page) {
+
+          if(typeof localStorage !== 'undefined') {
+
+            if(localStorage.getItem("sender-email") !== null) {
+
+              $(page).find("#sender-email").val(localStorage.getItem("sender-email"));
+
+            }
+
+          }
+
+        $(page).find('#send-button')
+              .clickable()
+              .on('click', function () {
+
+                  // attempt to send email
+
+                  if(typeof localStorage !== 'undefined') {
+
+                      localStorage.setItem("sender-email", $("#sender-email").val());
+
+                      var recipientList = new Array();
+
+                      if(localStorage.getItem("recipient-list") !== null) {
+
+                        recipientList = JSON.parse(localStorage.getItem("recipient-list"));
+
+                      }
+
+                      if ($.inArray($("recipient-email").val(), recipientList) == -1) {
+
+                        recipientList.push($("#recipient-email").val());
+
+                        recipientList.sort();
+
+                        localStorage.setItem("recipient-list", JSON.stringify(recipientList));
+
+                        console.log(recipientList);
+
+                      }
+
+                  } else {
+
+                    // alert user that we couldn't save the data
+
+                  }
+
+              });
+
+      });
+
+      try {
+        App.restore();
+      } catch (err) {
+        App.load('home');
       }
-
     </script>
-
   </body>
 </html>
